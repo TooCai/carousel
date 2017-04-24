@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>图片轮播器</title>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="css/gallery.css"/>
+		<style type="text/css">
+			.nav>li>a{
+				color:#767676;
+			}
+			.nav-container{
+				position:relative;
+			}
+			.nav{
+				position:fixed;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h2>基于JQuery2.0+css3的图片轮播插件</h2>
+		</div>
+		<div class="container" id="demo">
+			<div class="row">
+				<div class="col-md-9">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							左右轮播
+						</div>
+						<div class="panel-body">
+							<div>
+								<button id="btn1Start" class="btn btn-success">开始</button>
+								<button id="btn1Stop" class="btn btn-danger">暂停</button>
+							</div>
+							<div id="turn1">
+								<div class="gallery-container">
+									<ul class="gallery">
+										<li class="gallery-item">
+											<a href="#">
+												<img src="images/1.jpg"/>
+											</a>
+										</li>
+										<li class="gallery-item">
+											<a href="#">
+												<img src="images/2.jpg"/>
+											</a>
+										</li>
+										<li class="gallery-item">
+											<a href="#">
+												<img src="images/3.jpg"/>
+											</a>
+										</li>
+										<li class="gallery-item">
+											<a href="#">
+												<img src="images/4.jpg"/>
+											</a>
+										</li>
+										<li class="gallery-item">
+											<a href="#">
+												<img src="images/1.jpg"/>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							上下轮播
+						</div>
+						<div class="panel-body">
+							<div>
+								<button id="btn2Start" class="btn btn-success">开始</button>
+								<button id="btn2Stop" class="btn btn-danger">暂停</button>
+							</div>
+							<div id="turn2">
+								<div class="gallery-container">
+									<ul class="gallery">
+										<li class="gallery-item">
+											<a href="#">
+												<img src="images/1.jpg"/>
+											</a>
+										</li>
+										<li class="gallery-item">
+											<a href="#">
+												<img src="images/2.jpg"/>
+											</a>
+										</li>
+										<li class="gallery-item">
+											<a href="#">
+												<img src="images/3.jpg"/>
+											</a>
+										</li>
+										<li class="gallery-item">
+											<a href="#">
+												<img src="images/4.jpg"/>
+											</a>
+										</li>
+										<li class="gallery-item">
+											<a href="#">
+												<img src="images/1.jpg"/>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default" id="not">
+						<div class="panel-heading">未完成</div>
+						<div class="panel-body">
+							<div>
+								<p class="text-muted">上、下一页</p>
+								<p class="text-muted">向下、右轮播</p>
+								<p class="text-muted">点击导航器轮播到指定图片</p>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default" id="bug">
+						<div class="panel-heading">Bug</div>
+						<div class="panel-body">
+							<div>
+								<p class="text-danger">一轮轮播结束之后偶尔会反向轮播</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="nav-container">
+						<ul class="nav">
+							<li class="active">
+								<a href="#demo">轮播图Demo</a>
+							</li>
+							<li>
+								<a href="#not">未完成</a>
+							</li>
+							<li>
+								<a href="#bug">bug</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="js/jquery-2.0.3.js"></script>
+	<script type="text/javascript" src="js/gallery.js"></script>
+	<script type="text/javascript">
+		var t2 = $("#turn2 .gallery-container").eq(0).gallery({
+			width:790,
+			height:340,
+			size:4,
+			type:1,
+			loop:true,
+			showNav:true
+		}).start();
+		var t1 = $("#turn1 .gallery-container").eq(0).gallery({
+			width:790,
+			height:340,
+			size:4,
+			type:-1,
+			loop:true,
+			showNav:true
+		}).start();
+
+		$("#btn1Start").click(function(){
+			t1.start();
+		});
+		$("#btn1Stop").click(function(){
+			t1.stop();
+		});
+		$("#btn2Start").click(function(){
+			t2.start();
+		});
+		$("#btn2Stop").click(function(){
+			t2.stop();
+		});
+	</script>
+</html>
